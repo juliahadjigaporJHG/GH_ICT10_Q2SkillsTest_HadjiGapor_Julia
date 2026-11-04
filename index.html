@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+
+    <title>Periodic Table Information Finder</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #e6f4ff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #244b6b;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            background: white;
+            padding: 40px;
+            border-radius: 18px;
+            box-shadow: 0 8px 25px rgba(67, 133, 180, 0.12);
+            border: 1px solid #d3eafa;
+            text-align: center;
+        }
+
+        .icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+            color: #438fc4;
+        }
+
+        h1 {
+            font-size: 27px;
+            color: #285b80;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #7b9bb3;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .section-label {
+            text-align: left;
+            font-size: 12px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            color: #579bc9;
+            margin-bottom: 10px;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            min-width: 0;
+            padding: 14px;
+            border: 1.5px solid #c9e3f5;
+            background: #f7fbff;
+            border-radius: 9px;
+            outline: none;
+            font-size: 14px;
+            color: #285b80;
+        }
+
+        input[type="text"]:focus {
+            border-color: #65acd9;
+        }
+
+        input[type="text"]::placeholder {
+            color: #9bb5c9;
+        }
+
+        input[type="button"] {
+            padding: 14px 23px;
+            background: #65acd9;
+            color: white;
+            border: none;
+            border-radius: 9px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        input[type="button"]:hover {
+            background: #438fc4;
+        }
+
+        .result-heading {
+            text-align: left;
+            font-size: 13px;
+            font-weight: bold;
+            color: #438fc4;
+            margin-bottom: 10px;
+        }
+
+        #result {
+            background: #f1f8fe;
+            border: 1px solid #d6eafa;
+            border-radius: 10px;
+            padding: 22px;
+            min-height: 110px;
+            color: #426783;
+            font-size: 14px;
+            line-height: 1.8;
+            text-align: left;
+        }
+
+        .footer {
+            margin-top: 25px;
+            font-size: 11px;
+            color: #9bb5c9;
+            letter-spacing: 1.5px;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 25px 18px;
+            }
+
+            h1 {
+                font-size: 23px;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            input[type="button"] {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="icon">⚛</div>
+
+        <h1>Periodic Table Finder</h1>
+
+        <p class="subtitle">
+            Discover chemical elements and their properties.
+        </p>
+
+        <p class="section-label">SEARCH FOR AN ELEMENT</p>
+
+        <form class="search-box" onsubmit="return false;">
+            <input
+                type="text"
+                id="symbol_input"
+                placeholder="Enter symbol (e.g. H, O, Rn)"
+            >
+
+            <input
+                type="button"
+                py-click="search_element"
+                value="Search"
+            >
+        </form>
+
+        <p class="result-heading">ELEMENT INFORMATION</p>
+
+        <div id="result">
+            The element details will show here.
+        </div>
+
+        <p class="footer">
+            CHEMISTRY • ELEMENTS • DISCOVERY
+        </p>
+
+    </div>
+
+    <py-script src="main.py"></py-script>
+
+</body>
+</html>
